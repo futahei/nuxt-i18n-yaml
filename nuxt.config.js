@@ -32,16 +32,16 @@ export default {
       "@nuxtjs/i18n",
       {
         locales: [
-          { code: "jp", file: "ja.yaml" },
-          { code: "en", file: "en.yaml" },
+          { code: "ja", file: "ja.yaml", iso: 'ja-JP' },
+          { code: "en", file: "en.yaml", iso: 'en-US' },
         ],
-        defaultLocale: "jp",
+        defaultLocale: "ja",
         strategy: "prefix_except_default",
         langDir: "locales/",
         vueI18n: {
-          fallbackLocale: "jp",
+          fallbackLocale: "ja",
         },
-        vueI18nLoader: true,
+        lazy: true
       },
     ],
   ],
@@ -52,7 +52,6 @@ export default {
       $config.module.rules.push({
         test: /locales\/.*\.ya?ml$/,
         use: "js-yaml-loader",
-        type: "json",
       });
     },
   },

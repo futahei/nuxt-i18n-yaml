@@ -36,12 +36,10 @@ export default {
           { code: "en", file: "en.yaml", iso: 'en-US' },
         ],
         defaultLocale: "ja",
-        strategy: "prefix_except_default",
         langDir: "locales/",
         vueI18n: {
           fallbackLocale: "ja",
         },
-        lazy: true
       },
     ],
   ],
@@ -50,8 +48,8 @@ export default {
   build: {
     extend($config) {
       $config.module.rules.push({
-        test: /locales\/.*\.ya?ml$/,
-        use: "js-yaml-loader",
+        test: /locales(\\|\/).*\.ya?ml$/,
+        use: "yaml-loader",
       });
     },
   },
